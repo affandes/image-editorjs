@@ -1,0 +1,40 @@
+{
+  "name": "image-editorjs",
+  "version": "1.0.0",
+  "description": "EditorJs plugins for image embedding",
+  "main": "dist/image-editor.js",
+  "repository": "https://github.com/affandes/image-editorjs.git",
+  "author": "Affandes <affandes@uin-suska.ac.id>",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "editorjs",
+    "image",
+    "plugin",
+    "embed"
+  ],
+  "files": [
+    "dist",
+    "*.md"
+  ],
+  "scripts": {
+    "test": "webpack --config webpack-demo.config.js",
+    "dev": "webpack ",
+    "build": "webpack --config webpack-prod.config.js",
+    "start": "webpack-dev-server --open"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.2",
+    "file-loader": "^5.0.2",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@editorjs/editorjs": "^2.16.1"
+  }
+}
