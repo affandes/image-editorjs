@@ -73,15 +73,9 @@ class ImageEditor {
         urlField.placeholder = this.config.placeholder;
         urlField.classList.add(ImageEditor.CLASS.editorUrl);
 
-        let capField = document.createElement('input');
-        capField.contentEditable = true;
-        capField.placeholder = 'Caption (optional)';
-        capField.classList.add(ImageEditor.CLASS.editorCaption);
-
         this.editor = document.createElement('div');
         this.editor.classList.add(ImageEditor.CLASS.editor);
         this.editor.appendChild(urlField);
-        this.editor.appendChild(capField);
 
         if (!!this.data.url) {
             this.editor.hidden = true;
@@ -94,11 +88,7 @@ class ImageEditor {
         this.api.listeners.on(this.editor.childNodes[0], 'blur', (e) => {
             console.log('Blurring....');
             this.editor.hidden = true;
-        }, false);
-
-        this.api.listeners.on(this.editor.childNodes[1], 'blur', (e) => {
-            console.log('Blurring....');
-            this.editor.hidden = true;
+            this.viewer.childNodes[1].focus();
         }, false);
 
     }
@@ -107,12 +97,6 @@ class ImageEditor {
         this.viewer = document.createElement('figure');
         this.viewer.classList.add(ImageEditor.CLASS.viewer);
         this._update();
-        this.api.listeners.on(this.viewer, 'click', () => {
-            this.editor.hidden = false;
-            this.editor.childNodes[1].focus();
-            this._update();
-            console.log('Update: ', this.data)
-        }, false);
     }
 
     _update() {
@@ -124,15 +108,23 @@ class ImageEditor {
             this.viewer.appendChild(img);
             // Caption
             let cap = document.createElement('figcaption');
-            cap.textContent = this.editor.childNodes[1].value;
+            cap.contentEditable = true;
+            cap.textContent = !!this.data.caption ? this.data.caption : '';
             this.viewer.appendChild(cap);
+            // Add eventlistener
+            this.api.listeners.on(this.viewer.childNodes[0], 'click', () => {
+                this.editor.hidden = false;
+                this.editor.childNodes[0].focus();
+                this._update();
+                console.log('Update: ', this.data)
+            }, false);
         }
     }
 
     save(content) {
         return {
             url: this.editor.childNodes[0].value,
-            caption: this.editor.childNodes[1].value
+            caption: this.viewer.childNodes[1].value
         }
     }
 
