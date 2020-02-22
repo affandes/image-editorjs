@@ -1,7 +1,18 @@
-.aff-image-editor {
-    color: blue;
+.aff-image-wrapper .has-border {
+    border: solid 1px black;
 }
-
-.aff-image-viewer {
-    color: red;
+.aff-image-wrapper .left-aligned {
+    text-align: left;
+}
+.aff-image-wrapper .centered-aligned {
+    text-align: center;
+}
+.aff-image-wrapper .right-aligned {
+    text-align: right;
+}
+.aff-image-figure {
+    max-width: 100%;
+}
+.aff-image-figure img {
+    max-width: 100%;
 }
