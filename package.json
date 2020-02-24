@@ -1,6 +1,6 @@
 {
   "name": "image-editorjs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "EditorJs plugins for image embedding",
   "main": "dist/image-editor.js",
   "repository": "https://github.com/affandes/image-editorjs.git",
