@@ -75,7 +75,7 @@ class ImageEditor {
     }*/
 
     validate(data) {
-        if( !data.url.trim() ) {
+        if( !data && !data.url.trim() ) {
             return false;
         }
         return true;
@@ -193,9 +193,15 @@ class ImageEditor {
     }
 
     save(content) {
-        return {
-            url: this.data.captionPosition === 'top' ? this.wrapper.childNodes[0].childNodes[1].src : this.wrapper.childNodes[0].childNodes[0].src,
-            caption: this.data.captionPosition === 'top' ? this.wrapper.childNodes[0].childNodes[0].textContent : this.wrapper.childNodes[0].childNodes[1].textContent,
+        if( this.data.url.trim() !== '' ) {
+            return {
+                url: this.data.captionPosition === 'top' ? this.wrapper.childNodes[0].childNodes[1].src : this.wrapper.childNodes[0].childNodes[0].src,
+                caption: this.data.captionPosition === 'top' ? this.wrapper.childNodes[0].childNodes[0].textContent : this.wrapper.childNodes[0].childNodes[1].textContent,
+            }
+        } else {
+            return {
+
+            }
         }
     }
 
