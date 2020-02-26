@@ -1,13 +1,13 @@
-.aff-image-wrapper .has-border {
+.aff-image-content .has-border {
     border: solid 1px black;
 }
-.aff-image-wrapper .left-aligned {
+.aff-image-content .left-aligned {
     text-align: left;
 }
-.aff-image-wrapper .centered-aligned {
+.aff-image-content .center-aligned {
     text-align: center;
 }
-.aff-image-wrapper .right-aligned {
+.aff-image-content .right-aligned {
     text-align: right;
 }
 .aff-image-figure {
@@ -15,4 +15,10 @@
 }
 .aff-image-figure img {
     max-width: 100%;
+}
+.aff-image-figure figcaption {
+    color: #525252;
+}
+.aff-image-setting i {
+    margin: 8px auto;
 }

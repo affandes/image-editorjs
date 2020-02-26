@@ -1,6 +1,6 @@
 {
   "name": "image-editorjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "EditorJs plugins for image embedding",
   "main": "dist/image-editor.js",
   "repository": "https://github.com/affandes/image-editorjs.git",
@@ -35,6 +35,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
-    "@editorjs/editorjs": "^2.16.1"
+    "@editorjs/editorjs": "^2.16.1",
+    "@fortawesome/fontawesome-free": "^5.12.1"
   }
 }

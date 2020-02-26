@@ -1,11 +1,17 @@
 import EditorJS from "@editorjs/editorjs";
 import ImageEditor from "./image-editor";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const editorjs = new EditorJS({
     autofocus: false,
     tools: {
         image: {
-            class: ImageEditor
+            class: ImageEditor,
+            config: {
+                urlPatterns: [
+                    /(https:\/\/pixabay.com.*?.(jpg|png|gif|svg))/g
+                ]
+            }
         },
     },
     placeholder: 'Ketik disini...',
@@ -22,7 +28,8 @@ const editorjs = new EditorJS({
                 "type": "image",
                 "data": {
                     "url": "https://symfony.com/images/logos/header-logo.svg",
-                    "caption": "Your caption here..."
+                    "caption": "Your caption here...",
+                    "align": "center"
                 }
             }
         ],
